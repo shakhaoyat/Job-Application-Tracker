@@ -12,6 +12,11 @@
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
 
+      <!-- font awrsome -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+            integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
       <style>
             body {
                   font-family: "Geist", sans-serif;
@@ -68,14 +73,10 @@
             <section id="allCards" class="space-y-4">
 
                   <!-- Job Card 1 -->
-                  <div class="card bg-white border border-gray-200 p-6 rounded-lg shadow-sm relative">
+                  <div class="card bg-white border border-gray-200 p-6 rounded-lg shadow-sm relative space-y-3">
                         <!-- Delete button - Top Right -->
                         <button class="btn-delete text-gray-400 hover:text-red-500 absolute top-4 right-4">
-                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                              </svg>
+                              <i class="fa-solid fa-trash-can"></i>
                         </button>
 
                         <!-- Company and Position -->
@@ -85,7 +86,7 @@
                         </div>
 
                         <!-- Job details -->
-                        <div class="flex gap-2 text-sm text-gray-500 mb-3">
+                        <div class="flex gap-2 text-sm text-gray-500">
                               <p class="location">Remote</p>
                               <span>•</span>
                               <p class="jobType">Full-time</p>
@@ -93,16 +94,13 @@
                               <p class="salary">$130,000 - $175,000</p>
                         </div>
 
-                        <!-- Status badge -->
-                        <div class="mb-3">
-                              <span
-                                    class="status inline-block px-3 py-1 bg-blue-50 text-blue-700 text-xs font-semibold rounded uppercase">NOT
-                                    APPLIED</span>
+                        <div>
+                              <p
+                                    class="status inline-block py-2 pb-5 rounded-sm bg-[#EEF4FF] text-[#1e3a8a] w-[130px] font-medium mb-2 text-center">
+                                    NOT APPLIED</p>
+                              <p class="notes">Build cross-platform mobile applications using React Native. Work on
+                                    products used by millions of users worldwide.</p>
                         </div>
-
-                        <!-- Description -->
-                        <p class="notes text-sm text-gray-700 leading-relaxed mb-4">Build cross-platform mobile
-                              applications using React Native. Work on products used by millions of users worldwide.</p>
 
                         <!-- Action buttons -->
                         <div class="flex items-center gap-3">
@@ -114,14 +112,10 @@
                   </div>
 
                   <!-- Job Card 2 -->
-                  <div class="card bg-white border border-gray-200 p-6 rounded-lg shadow-sm relative">
+                  <div class="card bg-white border border-gray-200 p-6 rounded-lg shadow-sm relative space-y-3">
                         <!-- Delete button - Top Right -->
                         <button class="btn-delete text-gray-400 hover:text-red-500 absolute top-4 right-4">
-                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                              </svg>
+                              <i class="fa-solid fa-trash-can"></i>
                         </button>
 
                         <div>
@@ -129,7 +123,7 @@
                               <p class="position text-gray-500 mb-3">Full Stack Developer</p>
                         </div>
 
-                        <div class="flex gap-2 text-sm text-gray-500 mb-3">
+                        <div class="flex gap-2 text-sm text-gray-500">
                               <p class="location">Remote</p>
                               <span>•</span>
                               <p class="jobType">Full-time</p>
@@ -137,15 +131,13 @@
                               <p class="salary">$120,000 - $160,000</p>
                         </div>
 
-                        <div class="mb-3">
-                              <span
-                                    class="status inline-block px-3 py-1 bg-blue-50 text-blue-700 text-xs font-semibold rounded uppercase">NOT
-                                    APPLIED</span>
+                        <div>
+                              <p
+                                    class="status inline-block py-2 pb-5 rounded-sm bg-[#EEF4FF] text-[#1e3a8a] w-[130px] font-medium mb-2 text-center">
+                                    NOT APPLIED</p>
+                              <p class="notes">Join our dynamic team to build scalable web applications using modern
+                                    tech stack including React, Node.js, and PostgreSQL.</p>
                         </div>
-
-                        <p class="notes text-sm text-gray-700 leading-relaxed mb-4">Join our dynamic team to build
-                              scalable web applications using modern tech stack including React, Node.js, and
-                              PostgreSQL.</p>
 
                         <div class="flex items-center gap-3">
                               <button
@@ -156,14 +148,10 @@
                   </div>
 
                   <!-- Job Card 3 -->
-                  <div class="card bg-white border border-gray-200 p-6 rounded-lg shadow-sm relative">
+                  <div class="card bg-white border border-gray-200 p-6 rounded-lg shadow-sm relative space-y-3">
                         <!-- Delete button - Top Right -->
                         <button class="btn-delete text-gray-400 hover:text-red-500 absolute top-4 right-4">
-                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                              </svg>
+                              <i class="fa-solid fa-trash-can"></i>
                         </button>
 
                         <div>
@@ -171,7 +159,7 @@
                               <p class="position text-gray-500 mb-3">Frontend Engineer</p>
                         </div>
 
-                        <div class="flex gap-2 text-sm text-gray-500 mb-3">
+                        <div class="flex gap-2 text-sm text-gray-500">
                               <p class="location">Hybrid</p>
                               <span>•</span>
                               <p class="jobType">Full-time</p>
@@ -179,15 +167,13 @@
                               <p class="salary">$100,000 - $140,000</p>
                         </div>
 
-                        <div class="mb-3">
-                              <span
-                                    class="status inline-block px-3 py-1 bg-blue-50 text-blue-700 text-xs font-semibold rounded uppercase">NOT
-                                    APPLIED</span>
+                        <div>
+                              <p
+                                    class="status inline-block py-2 pb-5 rounded-sm bg-[#EEF4FF] text-[#1e3a8a] w-[130px] font-medium mb-2 text-center">
+                                    NOT APPLIED</p>
+                              <p class="notes">Create beautiful and responsive user interfaces using React, TypeScript,
+                                    and modern CSS frameworks for our fast-growing startup.</p>
                         </div>
-
-                        <p class="notes text-sm text-gray-700 leading-relaxed mb-4">Create beautiful and responsive user
-                              interfaces using React, TypeScript, and modern CSS frameworks for our fast-growing
-                              startup.</p>
 
                         <div class="flex items-center gap-3">
                               <button
