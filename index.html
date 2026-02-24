@@ -19,30 +19,188 @@
       </style>
 </head>
 
-<body class="bg-gray-50 min-h-screen">
-      <div class="container mx-auto px-4 py-8 max-w-7xl">
-            <!-- Header -->
-            <header class="mb-8">
-                  <h1 class="font-bold text-3xl text-gray-800 mb-8">Job Application Tracker</h1>
+<body class="bg-gray-50 min-h-screen py-8">
+      <header class="w-[80%] mx-auto mb-8">
+            <h1 class="text-4xl font-bold text-[#1e3a8a] mb-6">Job Application Tracker</h1>
+            <div class="grid grid-cols-3 gap-6">
+                  <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+                        <p class="text-sm text-gray-500 mb-1">Total</p>
+                        <p id="total" class="text-4xl font-bold text-[#1e3a8a]">3</p>
+                  </div>
 
-                  <!-- Stats Cards -->
-                  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
-                              <p class="text-sm text-gray-600 mb-2">Total</p>
-                              <p class="text-4xl font-bold text-gray-800" id="total-count">0</p>
+                  <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+                        <p class="text-sm text-gray-500 mb-1">Interview</p>
+                        <p id="interviewCount" class="text-4xl font-bold text-teal-500">0</p>
+                  </div>
+
+                  <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+                        <p class="text-sm text-gray-500 mb-1">Rejected</p>
+                        <p id="rejectedCount" class="text-4xl font-bold text-red-500">0</p>
+                  </div>
+            </div>
+      </header>
+
+      <hr class="my-8">
+
+      <main class="w-[80%] mx-auto">
+            <!-- Header with job count -->
+            <div class="flex justify-between items-center mb-4">
+                  <h2 class="text-xl font-semibold text-[#1e3a8a]">Available Jobs</h2>
+                  <p class="text-sm text-gray-500"><span id="jobCount">3</span> jobs</p>
+            </div>
+
+            <!-- Filter buttons -->
+            <div class="mb-6">
+                  <button onclick="toggleFilter('all-filter-btn')"
+                        class="bg-blue-600 text-white px-6 py-2 rounded-lg mr-2 font-medium"
+                        id="all-filter-btn">All</button>
+                  <button onclick="toggleFilter('interview-filter-btn')"
+                        class="bg-white text-gray-700 px-6 py-2 rounded-lg mr-2 border border-gray-200 font-medium"
+                        id="interview-filter-btn">Interview</button>
+                  <button onclick="toggleFilter('rejected-filter-btn')"
+                        class="bg-white text-gray-700 px-6 py-2 rounded-lg border border-gray-200 font-medium"
+                        id="rejected-filter-btn">Rejected</button>
+            </div>
+
+            <!-- Filtered section -->
+            <section id="filtered-section" class="hidden"></section>
+
+            <section id="allCards" class="space-y-4">
+
+                  <!-- Job Card 1 -->
+                  <div class="card bg-white border border-gray-200 p-6 rounded-lg shadow-sm relative">
+                        <!-- Delete button - Top Right -->
+                        <button class="btn-delete text-gray-400 hover:text-red-500 absolute top-4 right-4">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                              </svg>
+                        </button>
+
+                        <!-- Company and Position -->
+                        <div>
+                              <h3 class="companyName text-xl font-semibold text-[#1e3a8a] mb-1">Mobile First Corp</h3>
+                              <p class="position text-gray-500 mb-3">React Native Developer</p>
                         </div>
-                        <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
-                              <p class="text-sm text-gray-600 mb-2">Interview</p>
-                              <p class="text-4xl font-bold text-green-600" id="interview-count">0</p>
+
+                        <!-- Job details -->
+                        <div class="flex gap-2 text-sm text-gray-500 mb-3">
+                              <p class="location">Remote</p>
+                              <span>•</span>
+                              <p class="jobType">Full-time</p>
+                              <span>•</span>
+                              <p class="salary">$130,000 - $175,000</p>
                         </div>
-                        <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
-                              <p class="text-sm text-gray-600 mb-2">Rejected</p>
-                              <p class="text-4xl font-bold text-red-600" id="rejected-count">0</p>
+
+                        <!-- Status badge -->
+                        <div class="mb-3">
+                              <span
+                                    class="status inline-block px-3 py-1 bg-blue-50 text-blue-700 text-xs font-semibold rounded uppercase">NOT
+                                    APPLIED</span>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="notes text-sm text-gray-700 leading-relaxed mb-4">Build cross-platform mobile
+                              applications using React Native. Work on products used by millions of users worldwide.</p>
+
+                        <!-- Action buttons -->
+                        <div class="flex items-center gap-3">
+                              <button
+                                    class="interview-btn border-2 border-teal-500 text-teal-600 px-5 py-2 rounded font-semibold text-xs hover:bg-teal-50 uppercase">INTERVIEW</button>
+                              <button
+                                    class="rejected-btn border-2 border-red-500 text-red-600 px-5 py-2 rounded font-semibold text-xs hover:bg-red-50 uppercase">REJECTED</button>
                         </div>
                   </div>
-            </header>
 
+                  <!-- Job Card 2 -->
+                  <div class="card bg-white border border-gray-200 p-6 rounded-lg shadow-sm relative">
+                        <!-- Delete button - Top Right -->
+                        <button class="btn-delete text-gray-400 hover:text-red-500 absolute top-4 right-4">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                              </svg>
+                        </button>
 
+                        <div>
+                              <h3 class="companyName text-xl font-semibold text-[#1e3a8a] mb-1">Tech Solutions Inc</h3>
+                              <p class="position text-gray-500 mb-3">Full Stack Developer</p>
+                        </div>
+
+                        <div class="flex gap-2 text-sm text-gray-500 mb-3">
+                              <p class="location">Remote</p>
+                              <span>•</span>
+                              <p class="jobType">Full-time</p>
+                              <span>•</span>
+                              <p class="salary">$120,000 - $160,000</p>
+                        </div>
+
+                        <div class="mb-3">
+                              <span
+                                    class="status inline-block px-3 py-1 bg-blue-50 text-blue-700 text-xs font-semibold rounded uppercase">NOT
+                                    APPLIED</span>
+                        </div>
+
+                        <p class="notes text-sm text-gray-700 leading-relaxed mb-4">Join our dynamic team to build
+                              scalable web applications using modern tech stack including React, Node.js, and
+                              PostgreSQL.</p>
+
+                        <div class="flex items-center gap-3">
+                              <button
+                                    class="interview-btn border-2 border-teal-500 text-teal-600 px-5 py-2 rounded font-semibold text-xs hover:bg-teal-50 uppercase">INTERVIEW</button>
+                              <button
+                                    class="rejected-btn border-2 border-red-500 text-red-600 px-5 py-2 rounded font-semibold text-xs hover:bg-red-50 uppercase">REJECTED</button>
+                        </div>
+                  </div>
+
+                  <!-- Job Card 3 -->
+                  <div class="card bg-white border border-gray-200 p-6 rounded-lg shadow-sm relative">
+                        <!-- Delete button - Top Right -->
+                        <button class="btn-delete text-gray-400 hover:text-red-500 absolute top-4 right-4">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                              </svg>
+                        </button>
+
+                        <div>
+                              <h3 class="companyName text-xl font-semibold text-[#1e3a8a] mb-1">Startup Hub</h3>
+                              <p class="position text-gray-500 mb-3">Frontend Engineer</p>
+                        </div>
+
+                        <div class="flex gap-2 text-sm text-gray-500 mb-3">
+                              <p class="location">Hybrid</p>
+                              <span>•</span>
+                              <p class="jobType">Full-time</p>
+                              <span>•</span>
+                              <p class="salary">$100,000 - $140,000</p>
+                        </div>
+
+                        <div class="mb-3">
+                              <span
+                                    class="status inline-block px-3 py-1 bg-blue-50 text-blue-700 text-xs font-semibold rounded uppercase">NOT
+                                    APPLIED</span>
+                        </div>
+
+                        <p class="notes text-sm text-gray-700 leading-relaxed mb-4">Create beautiful and responsive user
+                              interfaces using React, TypeScript, and modern CSS frameworks for our fast-growing
+                              startup.</p>
+
+                        <div class="flex items-center gap-3">
+                              <button
+                                    class="interview-btn border-2 border-teal-500 text-teal-600 px-5 py-2 rounded font-semibold text-xs hover:bg-teal-50 uppercase">INTERVIEW</button>
+                              <button
+                                    class="rejected-btn border-2 border-red-500 text-red-600 px-5 py-2 rounded font-semibold text-xs hover:bg-red-50 uppercase">REJECTED</button>
+                        </div>
+                  </div>
+
+            </section>
+      </main>
+
+      <script src="script.js"></script>
 </body>
 
 </html>
