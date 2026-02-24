@@ -20,6 +20,7 @@ function calculateCount() {
       total.innerText = allCardSection.children.length;
       interviewCount.innerText = interviewList.length;
       rejectedCount.innerText = rejectedList.length;
+      document.getElementById('jobCount').innerText = allCardSection.children.length;
 }
 
 calculateCount();
@@ -60,7 +61,24 @@ function toggleFilter(id) {
 
 // Event delegation
 mainContainer.addEventListener('click', function (event) {
-      if (event.target.classList.contains('interview-btn')) {
+      // Handle delete button click
+      if (event.target.classList.contains('btn-delete') || event.target.closest('.btn-delete')) {
+            const parentNode = event.target.closest('.card');
+            const companyName = parentNode.querySelector('.companyName').innerText;
+            
+            // Remove from interview list if exists
+            interviewList = interviewList.filter(item => item.companyName != companyName);
+            
+            // Remove from rejected list if exists
+            rejectedList = rejectedList.filter(item => item.companyName != companyName);
+            
+            // Remove the card from DOM
+            parentNode.remove();
+            
+            // Update all counts
+            calculateCount();
+            
+      } else if (event.target.classList.contains('interview-btn')) {
             const parentNode = event.target.parentNode.parentNode;
 
             const companyName = parentNode.querySelector('.companyName').innerText;
