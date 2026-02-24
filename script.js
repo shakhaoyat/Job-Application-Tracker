@@ -143,6 +143,17 @@ mainContainer.addEventListener('click', function (event) {
 function renderInterview() {
       filterSection.innerHTML = '';
 
+      if (interviewList.length === 0) {
+            filterSection.innerHTML = `
+                  <div class="flex flex-col items-center justify-center py-16">
+                        <img src="jobs.png" alt="No jobs" class="w-24 h-24 mb-4 opacity-50">
+                        <h3 class="text-xl font-semibold text-gray-700 mb-2">No jobs available</h3>
+                        <p class="text-gray-500">Check back later for new job opportunities</p>
+                  </div>
+            `;
+            return;
+      }
+
       for (let job of interviewList) {
             let div = document.createElement('div');
             div.className = 'card bg-white border border-gray-200 p-6 rounded-lg shadow-sm relative space-y-4';
@@ -181,6 +192,17 @@ function renderInterview() {
 // Render Rejected jobs
 function renderRejected() {
       filterSection.innerHTML = '';
+
+      if (rejectedList.length === 0) {
+            filterSection.innerHTML = `
+                  <div class="flex flex-col items-center justify-center py-16">
+                        <img src="jobs.png" alt="No jobs" class="w-24 h-24 mb-4 opacity-50">
+                        <h3 class="text-xl font-semibold text-gray-700 mb-2">No jobs available</h3>
+                        <p class="text-gray-500">Check back later for new job opportunities</p>
+                  </div>
+            `;
+            return;
+      }
 
       for (let job of rejectedList) {
             let div = document.createElement('div');
