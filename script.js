@@ -60,7 +60,21 @@ function toggleFilter(id) {
 
 // Event delegation
 mainContainer.addEventListener('click', function (event) {
-      if (event.target.classList.contains('interview-btn')) {
+      // Handle delete button (check both button and icon inside it)
+      if (event.target.classList.contains('btn-delete') || event.target.closest('.btn-delete')) {
+            const deleteBtn = event.target.classList.contains('btn-delete') ? event.target : event.target.closest('.btn-delete');
+            const parentNode = deleteBtn.parentNode;
+            const companyName = parentNode.querySelector('.companyName').innerText;
+
+            // Remove from DOM
+            parentNode.remove();
+
+            // Remove from lists
+            interviewList = interviewList.filter(item => item.companyName !== companyName);
+            rejectedList = rejectedList.filter(item => item.companyName !== companyName);
+
+            calculateCount();
+      } else if (event.target.classList.contains('interview-btn')) {
             const parentNode = event.target.parentNode.parentNode;
 
             const companyName = parentNode.querySelector('.companyName').innerText;
